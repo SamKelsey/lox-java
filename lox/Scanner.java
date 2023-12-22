@@ -90,8 +90,10 @@ public class Scanner {
                 break;
             case '?':
                 addToken(QUESTION_MARK);
+                break;
             case ':':
                 addToken(COLON);
+                break;
             case '!':
                 addToken(match('=') ? BANG_EQUAL : BANG);
                 break;

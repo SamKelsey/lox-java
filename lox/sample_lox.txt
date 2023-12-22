@@ -1,5 +1,1 @@
-var my_var = "car engine"
-
-if (my_var == "motiv") {
-    return "hello";
-}
+"test" == "me" ? 1 : 0
