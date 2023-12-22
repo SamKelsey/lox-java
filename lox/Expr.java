@@ -3,14 +3,12 @@ package lox;
 import java.util.List;
 
 abstract class Expr {
-
-    abstract <R> R accept(Visitor<R> visitor);
-
     interface Visitor<R> {
         R visitBinaryExpr(Binary expr);
         R visitGroupingExpr(Grouping expr);
         R visitLiteralExpr(Literal expr);
         R visitUnaryExpr(Unary expr);
+        R visitTernaryExpr(Ternary expr);
     }
     static class Binary extends Expr {
         Binary(Expr left, Token operator, Expr right) {
@@ -66,4 +64,22 @@ abstract class Expr {
         final Token operator;
         final Expr right;
     }
+    static class Ternary extends Expr {
+        Ternary(Expr conditional, Expr ifTrue, Expr ifFalse) {
+            this.conditional = conditional;
+            this.ifTrue = ifTrue;
+            this.ifFalse = ifFalse;
+        }
+
+        @Override
+        <R> R accept(Visitor<R> visitor) {
+            return visitor.visitTernaryExpr(this);
+        }
+
+        final Expr conditional;
+        final Expr ifTrue;
+        final Expr ifFalse;
+    }
+
+    abstract <R> R accept(Visitor<R> visitor);
 }
