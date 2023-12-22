@@ -13,3 +13,5 @@ unary       &rarr; ( "!" | "-" ) unary | primary ;                              
 primary     &rarr; NUMBER | STRING | "true" | "false" | "nil" | "(" expression ")" ;         |   Highest
 ```
 
+**Exercises Implemented**
+* 6.2 - Add support for ternary operator.
