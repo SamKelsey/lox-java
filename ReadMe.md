@@ -4,7 +4,7 @@ The Lox Grammar is as follows:
 
 ```markdown
 expression  &rarr; ternary ;                                                                 |   Lowest
-ternary     &rarr; ( equality "?" equality ":" equality ) | equality ;                       |      &uarr;
+ternary     &rarr; equality ( "?" equality ":" equality )* ;                       |      &uarr;
 equality    &rarr; comparison ( ( "!=" | "==" ) comparison )* ;                              |
 comparison  &rarr; term ( ( ">" | ">=" | "<" | "<=" ) term )* ;                              |  Precedence         
 term        &rarr; factor ( ( "-" | "+" ) factor )* ;                                        |  
