@@ -95,6 +95,6 @@ public class Interpreter implements Expr.Visitor<Object> {
             return false;
         }
 
-        return a.equals(b)
+        return a.equals(b);
     }
 }
